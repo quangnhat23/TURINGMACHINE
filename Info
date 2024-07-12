@@ -1,0 +1,59 @@
+A Turing machine consists of the following components:
+
+1) A strip of paper divided up into squares. Each square can have (or
+not have) a mark in it. This strip of paper, which represents the
+machine's memory, is assumed to be infinite.
+2) A "read head", marking the machine's current position on the tape.
+
+The machine can perform the following actions;
+  * Check if a mark is present on the current square
+  * Mark the current square
+  * Erase the mark on the current square
+  * Move the read head one square left
+  * Move the read head one square right
+
+3) The machine also has a "state table." The state table -- which you
+will implement in part two of this assignment -- is used to program the
+Turing machine.
+
+
+Here is what you have to implement:
+
+A class called Turing_machine, declared in a file named Turing_machine.h
+and defined in a file named Turing_machine.cpp.
+
+This class must have some sort of instance variable that stores what
+squares on the tape have marks on them. However, you must find a
+relatively memory-efficient way to store the tape. If you simply store
+the tape as (for example) an array or vector of bools, with each item in
+the array or vector indicating one square, your program will definitely
+fail many of the required tests. This is because you will very quickly
+run out of available memory. Real-world computers, unlike Turing
+machines, have finite amounts of memory.
+
+NOTE: None of my tests will involve moving the read head more than
+2147483647 spaces to the left or right of the initial square.
+
+
+Your Turing_machine class should also contain an instance variable
+indicating the currently selected square.
+
+At this stage the class should contain public member functions with the
+following signatures:
+
+void Turing_machine::move_left();    // moves the read head 1 square left
+void Turing_machine::move_right();   // moves the read head 1 square right
+bool Turing_machine::read_square();  // returns true if there is a mark
+                                    // on the current square, false otherwise
+void Turing_machine::make_mark();    // marks the current square, if it
+                                    // is not already marked
+void Turing_machine::remove_mark();  // if there is a mark on the current
+                                    // square, remove it
+std::string Turing_machine::get_tape();  // returns a string
+                                                                    // representation of the tape
+long Turing_machine::get_current_square();   // returns the location of
+                                                                           // the read head
+void Turing_machine::read_tape_file(ifstream &file); // 
+
+Model your output for get_tape() and get_current_square() off the output
+given in the reference solution. 
